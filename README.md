@@ -1,48 +1,51 @@
-# SURL.CF - 简单、快速的链接缩短服务
+# SURL.CF - Simple, Fast URL Shortener
 
-SURL.CF 是一个使用 Next.js 和 Cloudflare Pages 构建的链接缩短服务。它允许用户将长 URL 转换为短链接，方便分享和使用。它支持自定义短链接、复制到剪贴板、响应式设计、使用 Cloudflare KV 存储链接数据、使用 Cloudflare Turnstile 进行可选的人机验证、可配置的右上角弹出式公告系统、管理员控制台、GitHub 链接集成等功能。
+[中文](README_ZH.md) | [English](README.md)
 
-## 功能特点
+SURL.CF is a URL shortening service built with Next.js and Cloudflare Pages. It allows users to convert long URLs into short links for easier sharing and use. It supports custom short links, clipboard copying, responsive design, Cloudflare KV for link storage, optional human verification with Cloudflare Turnstile, a configurable announcement system, an admin console, and GitHub integration.
 
-- 快速将长 URL 转换为短链接
-- 支持自定义短链接（例如：surl.cf/my-product）
-- 复制到剪贴板功能
-- 响应式设计，适配各种设备
-- 使用 Cloudflare KV 存储链接数据
-- 使用 Cloudflare Turnstile 进行可选的人机验证
-- 可配置的右上角弹出式公告系统，支持标题、Markdown 内容和不同类型的通知
-- 管理员控制台，用于管理和分析短链接
-- GitHub 仓库链接集成
-- 部署在 Cloudflare Pages 上，全球快速访问
+## Features
 
-## 本地开发
+- Quickly convert long URLs into short links
+- Support for custom short links (e.g., surl.cf/my-product)
+- Copy to clipboard functionality
+- Responsive design for all devices
+- Cloudflare KV for link data storage
+- Optional human verification with Cloudflare Turnstile
+- Configurable announcement system with title, Markdown content, and different notification types
+- Admin console for managing and analyzing short links
+- GitHub repository integration
+- Deployed on Cloudflare Pages for global fast access
+- Multilingual support (English and Chinese)
 
-1. 克隆仓库：
+## Local Development
+
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/siiway/surl.cf.git
 cd surl.cf
 ```
 
-2. 安装依赖：
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. 运行开发服务器：
+3. Run the development server:
 
 ```bash
 npm run dev
 ```
 
-4. 在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看结果。
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## 部署到 Cloudflare Pages
+## Deployment to Cloudflare Pages
 
-1. 在 Cloudflare 控制面板中创建一个 KV 命名空间，命名为 `LINKS_KV`。
+1. Create a KV namespace in your Cloudflare dashboard, named `LINKS_KV`.
 
-2. 更新 `wrangler.toml` 文件中的 KV 命名空间 ID：
+2. Update the KV namespace ID in the `wrangler.toml` file:
 
 ```toml
 kv_namespaces = [
@@ -50,9 +53,9 @@ kv_namespaces = [
 ]
 ```
 
-3. 在 [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) 创建一个站点，获取 Site Key 和 Secret Key。
+3. Create a site in [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) to get a Site Key and Secret Key.
 
-4. 更新 `wrangler.toml` 文件中的 Turnstile 密钥：
+4. Update the Turnstile keys in the `wrangler.toml` file:
 
 ```toml
 [env.production]
@@ -61,53 +64,57 @@ NEXT_PUBLIC_TURNSTILE_SITE_KEY = "YOUR_TURNSTILE_SITE_KEY"
 TURNSTILE_SECRET_KEY = "YOUR_TURNSTILE_SECRET_KEY"
 ```
 
-5. 使用 Cloudflare Pages 部署：
-   - 连接你的 GitHub 仓库
-   - 设置构建命令为 `npm run build`
-   - 设置输出目录为 `.next`
-   - 添加环境变量 `NODE_ENV=production`
+5. Deploy using Cloudflare Pages:
+   - Connect your GitHub repository
+   - Set the build command to `npm run build`
+   - Set the output directory to `.next`
+   - Add the environment variable `NODE_ENV=production`
 
-6. 部署完成后，你的链接缩短服务将在 Cloudflare Pages 提供的域名上可用。
+6. After deployment, your URL shortening service will be available at the domain provided by Cloudflare Pages.
 
-## 技术栈
+## Tech Stack
 
-- [Next.js](https://nextjs.org) - React 框架
-- [Tailwind CSS](https://tailwindcss.com) - CSS 框架
-- [Cloudflare Pages](https://pages.cloudflare.com) - 托管服务
-- [Cloudflare KV](https://developers.cloudflare.com/workers/runtime-apis/kv) - 键值存储
-- [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) - 人机验证服务
-- [Jose](https://github.com/panva/jose) - JWT 实现库
+- [Next.js](https://nextjs.org) - React framework
+- [Tailwind CSS](https://tailwindcss.com) - CSS framework
+- [Cloudflare Pages](https://pages.cloudflare.com) - Hosting service
+- [Cloudflare KV](https://developers.cloudflare.com/workers/runtime-apis/kv) - Key-value storage
+- [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) - Human verification service
+- [Jose](https://github.com/panva/jose) - JWT implementation library
 
-## 管理员控制台
+## Admin Console
 
-SURL.CF 包含一个管理员控制台，可以通过访问 `/admin` 路径进入。默认的管理员凭据为：
+SURL.CF includes an admin console that can be accessed by visiting the `/admin` path. The default admin credentials are:
 
-- 用户名: `admin`
-- 密码: `admin123`
+- Username: `admin`
+- Password: `admin123`
 
-**重要提示：** 在生产环境中，请务必更改默认凭据，并使用强密码和安全的 JWT 密钥。
+**Important Note:** In a production environment, be sure to change the default credentials and use a strong password and secure JWT key.
 
-管理员控制台功能：
+Admin console features:
 
-1. **仪表盘** - 查看链接统计信息
-2. **链接管理** - 查看、搜索和删除短链接
-3. **设置** - 管理账户设置和系统配置，包括启用/禁用人机验证
+1. **Dashboard** - View link statistics
+2. **Link Management** - View, search, and delete short links
+3. **Settings** - Manage account settings and system configuration, including enabling/disabling human verification
 
-要配置管理员凭据，请在 `wrangler.toml` 文件中设置以下环境变量：
+To configure admin credentials, set the following environment variables in your `wrangler.toml` file:
 
 ```toml
-JWT_SECRET = "your-super-secret-jwt-key" # 用于 JWT 签名的密钥
-ADMIN_USERNAME = "your-username" # 管理员用户名
-ADMIN_PASSWORD = "your-password" # 管理员密码
-NEXT_PUBLIC_ENABLE_TURNSTILE = "true" # 是否启用 Turnstile 人机验证 (true/false)
-NEXT_PUBLIC_ANNOUNCEMENT_TITLE = "欢迎使用 SURL.CF" # 公告标题，设置为空字符串则不显示
-NEXT_PUBLIC_ANNOUNCEMENT_CONTENT = "这是一个**简单、快速**的链接缩短服务！\n\n- 支持自定义短链接\n- 支持复制到剪贴板" # 公告内容，支持 Markdown 格式
-NEXT_PUBLIC_ANNOUNCEMENT_TYPE = "info" # 公告类型: info, warning, success, error
-NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf" # GitHub 仓库链接
+JWT_SECRET = "your-super-secret-jwt-key" # Key for JWT signing
+ADMIN_USERNAME = "your-username" # Admin username
+ADMIN_PASSWORD = "your-password" # Admin password
+NEXT_PUBLIC_ENABLE_TURNSTILE = "true" # Whether to enable Turnstile human verification (true/false)
+NEXT_PUBLIC_ANNOUNCEMENT_TITLE = "Welcome to SURL.CF" # Announcement title, set to empty string to hide
+NEXT_PUBLIC_ANNOUNCEMENT_CONTENT = "This is a **simple, fast** URL shortening service!\n\n- Supports custom short links\n- Supports copy to clipboard" # Announcement content, supports Markdown
+NEXT_PUBLIC_ANNOUNCEMENT_TYPE = "info" # Announcement type: info, warning, success, error
+NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf" # GitHub repository link
 ```
 
-## 开源许可
+## Open Source License
 
-本项目使用 GNU General Public License v3.0。
+This project is licensed under the GNU General Public License v3.0.
 
-更多信息请查看 [LICENSE](LICENSE) 文件。
+For more information, see the [LICENSE](LICENSE) file.
+
+## Language Support
+
+This project supports both English and Chinese. For the Chinese version of this README, please see [README_ZH.md](README_ZH.md).
