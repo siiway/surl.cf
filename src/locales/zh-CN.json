@@ -1,0 +1,189 @@
+{
+  "common": {
+    "title": "SURL.CF",
+    "subtitle": "简单、快速的链接缩短服务",
+    "backToHome": "返回首页",
+    "footer": {
+      "copyright": "© {year} SURL.CF - 使用 Cloudflare Pages 构建",
+      "github": "GitHub",
+      "admin": "管理员",
+      "privacy": "隐私政策"
+    }
+  },
+  "home": {
+    "form": {
+      "urlPlaceholder": "输入长 URL",
+      "customSlugLabel": "使用自定义短链接",
+      "customSlugPlaceholder": "my-custom-link",
+      "customSlugHelp": "自定义短链接只能包含字母、数字、连字符和下划线，长度在 3-20 之间。例如：my-link、product_123",
+      "submitButton": "缩短链接",
+      "processingButton": "处理中...",
+      "urlRequired": "请输入 URL",
+      "invalidUrl": "请输入有效的 URL",
+      "customSlugRequired": "请输入自定义短链接",
+      "turnstileRequired": "请完成人机验证"
+    },
+    "result": {
+      "title": "您的短链接已生成",
+      "copyButton": "复制",
+      "copiedButton": "已复制!",
+      "description": "您可以通过分享此链接，让他人访问您的原始 URL。",
+      "customSlugSuccess": "已使用您的自定义短链接: {slug}"
+    },
+    "errors": {
+      "general": "生成短链接时出错",
+      "clipboard": "复制到剪贴板失败",
+      "notFound": "链接未找到",
+      "failedToRetrieve": "获取链接时出错"
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "管理员登录",
+      "subtitle": "请输入您的管理员凭据",
+      "username": "用户名",
+      "password": "密码",
+      "loginButton": "登录",
+      "processingButton": "登录中...",
+      "backToHome": "返回首页",
+      "credentialsRequired": "请输入用户名和密码",
+      "invalidCredentials": "用户名或密码不正确"
+    },
+    "dashboard": {
+      "title": "仪表盘",
+      "subtitle": "查看您的链接缩短服务概览",
+      "totalLinks": "总链接数",
+      "recentLinks": "最近 24 小时",
+      "quickActions": "快速操作",
+      "manageLinks": "管理链接",
+      "backToHome": "返回首页",
+      "fetchError": "获取数据失败",
+      "tips": {
+        "title": "使用提示",
+        "linkManagement": {
+          "title": "链接管理",
+          "description": "在'链接管理'页面，您可以查看、搜索和删除短链接。"
+        },
+        "security": {
+          "title": "安全提示",
+          "description": "请确保定期更改您的管理员密码，并保持登录凭据的安全。"
+        }
+      }
+    },
+    "links": {
+      "title": "链接管理",
+      "subtitle": "查看和管理所有短链接",
+      "unknown": "未知",
+      "errors": {
+        "fetchFailed": "获取链接数据失败",
+        "loadMoreFailed": "加载更多链接失败",
+        "deleteFailed": "删除链接失败"
+      },
+      "search": {
+        "title": "搜索链接",
+        "placeholder": "搜索短链接 ID 或 URL..."
+      },
+      "list": {
+        "title": "链接列表",
+        "empty": "没有找到链接",
+        "columns": {
+          "id": "短链接 ID",
+          "url": "原始 URL",
+          "created": "创建时间",
+          "actions": "操作"
+        },
+        "deleteButton": "删除",
+        "loadMore": "加载更多",
+        "loading": "加载中..."
+      }
+    },
+    "settings": {
+      "title": "设置",
+      "subtitle": "管理您的账户和应用程序设置",
+      "announcement": {
+        "title": "公告设置",
+        "languageSelector": "选择编辑语言",
+        "languageSelectorHelp": "选择要编辑的公告语言版本",
+        "titleLabel": "公告标题",
+        "titlePlaceholder": "输入公告标题，留空则不显示公告",
+        "titleHelp": "设置标题为空则不显示公告",
+        "contentLabel": "公告内容 (支持 Markdown)",
+        "contentPlaceholder": "输入公告内容，支持 Markdown 格式",
+        "contentHelp": "支持 Markdown 格式，如 **粗体**、*斜体*、[链接](URL)、- 列表项等。使用 \\n 表示换行。公告将显示为右上角弹出的提示，8秒后自动消失。",
+        "typeLabel": "公告类型",
+        "types": {
+          "info": "信息 (蓝色)",
+          "warning": "警告 (黄色)",
+          "success": "成功 (绿色)",
+          "error": "错误 (红色)"
+        },
+        "updateButton": "更新公告",
+        "processingButton": "更新中...",
+        "previewButton": "预览当前公告"
+      },
+      "password": {
+        "title": "更改密码",
+        "currentPassword": "当前密码",
+        "newPassword": "新密码",
+        "confirmPassword": "确认新密码",
+        "updateButton": "更新密码",
+        "processingButton": "更新中...",
+        "allFieldsRequired": "请填写所有密码字段",
+        "passwordMismatch": "新密码和确认密码不匹配",
+        "passwordTooShort": "新密码长度必须至少为 8 个字符"
+      },
+      "account": {
+        "title": "账户信息",
+        "username": "用户名",
+        "role": "角色",
+        "lastLogin": "上次登录"
+      },
+      "turnstile": {
+        "title": "Turnstile 人机验证",
+        "enabled": "已启用",
+        "disabled": "已禁用",
+        "enabledDescription": "用户需要完成人机验证才能创建短链接",
+        "disabledDescription": "用户可以直接创建短链接，无需人机验证",
+        "enableButton": "启用",
+        "disableButton": "禁用",
+        "updateError": "更新 Turnstile 设置失败",
+        "statusMessage": "Turnstile 人机验证已{status}"
+      },
+      "security": {
+        "title": "安全提示",
+        "passwordTip": "定期更改您的密码以保持账户安全。",
+        "strongPasswordTip": "使用强密码，包含字母、数字和特殊字符。",
+        "turnstileTip": "启用 Turnstile 人机验证可以防止自动化滥用。"
+      },
+      "reservedSlugs": {
+        "title": "保留短链接",
+        "newSlug": "新保留短链接",
+        "newSlugPlaceholder": "输入要保留的短链接",
+        "search": "搜索保留短链接",
+        "searchPlaceholder": "按名称搜索...",
+        "list": "保留短链接",
+        "empty": "未找到保留短链接",
+        "noResults": "没有匹配您搜索的结果",
+        "addButton": "添加",
+        "removeButton": "移除",
+        "description": "保留短链接不能被用户用于创建自定义短链接。这有助于防止混淆和潜在的滥用。",
+        "errors": {
+          "emptySlug": "请输入要保留的短链接",
+          "invalidFormat": "短链接只能包含字母、数字、连字符和下划线，长度在 3-20 之间",
+          "alreadyExists": "此短链接已被保留"
+        },
+        "success": {
+          "added": "短链接 '{slug}' 已被保留",
+          "removed": "短链接 '{slug}' 已从保留列表中移除"
+        }
+      }
+    },
+    "common": {
+      "logout": "登出",
+      "dashboard": "仪表盘",
+      "links": "链接管理",
+      "settings": "设置",
+      "console": "管理控制台"
+    }
+  }
+}

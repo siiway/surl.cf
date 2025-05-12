@@ -1,0 +1,189 @@
+{
+  "common": {
+    "title": "SURL.CF",
+    "subtitle": "Simple, Fast URL Shortener",
+    "backToHome": "Back to Home",
+    "footer": {
+      "copyright": "© {year} SURL.CF - Built with Cloudflare Pages",
+      "github": "GitHub",
+      "admin": "Admin",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "home": {
+    "form": {
+      "urlPlaceholder": "Enter long URL",
+      "customSlugLabel": "Use custom short link",
+      "customSlugPlaceholder": "my-custom-link",
+      "customSlugHelp": "Custom short links can only contain letters, numbers, hyphens, and underscores, with a length between 3-20 characters. Examples: my-link, product_123",
+      "submitButton": "Shorten URL",
+      "processingButton": "Processing...",
+      "urlRequired": "Please enter a URL",
+      "invalidUrl": "Please enter a valid URL",
+      "customSlugRequired": "Please enter a custom short link",
+      "turnstileRequired": "Please complete the human verification"
+    },
+    "result": {
+      "title": "Your short link has been generated",
+      "copyButton": "Copy",
+      "copiedButton": "Copied!",
+      "description": "You can share this link to let others access your original URL.",
+      "customSlugSuccess": "Used your custom short link: {slug}"
+    },
+    "errors": {
+      "general": "Error generating short link",
+      "clipboard": "Failed to copy to clipboard",
+      "notFound": "Link not found",
+      "failedToRetrieve": "Failed to retrieve link"
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "Admin Login",
+      "subtitle": "Please enter your admin credentials",
+      "username": "Username",
+      "password": "Password",
+      "loginButton": "Login",
+      "processingButton": "Logging in...",
+      "backToHome": "Back to Home",
+      "credentialsRequired": "Please enter username and password",
+      "invalidCredentials": "Username or password is incorrect"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "View your URL shortener service overview",
+      "totalLinks": "Total Links",
+      "recentLinks": "Last 24 Hours",
+      "quickActions": "Quick Actions",
+      "manageLinks": "Manage Links",
+      "backToHome": "Back to Home",
+      "fetchError": "Failed to fetch data",
+      "tips": {
+        "title": "Usage Tips",
+        "linkManagement": {
+          "title": "Link Management",
+          "description": "On the 'Link Management' page, you can view, search, and delete short links."
+        },
+        "security": {
+          "title": "Security Tips",
+          "description": "Make sure to change your admin password regularly and keep your login credentials secure."
+        }
+      }
+    },
+    "links": {
+      "title": "Link Management",
+      "subtitle": "View and manage all short links",
+      "unknown": "Unknown",
+      "errors": {
+        "fetchFailed": "Failed to fetch link data",
+        "loadMoreFailed": "Failed to load more links",
+        "deleteFailed": "Failed to delete link"
+      },
+      "search": {
+        "title": "Search Links",
+        "placeholder": "Search short link ID or URL..."
+      },
+      "list": {
+        "title": "Link List",
+        "empty": "No links found",
+        "columns": {
+          "id": "Short Link ID",
+          "url": "Original URL",
+          "created": "Created At",
+          "actions": "Actions"
+        },
+        "deleteButton": "Delete",
+        "loadMore": "Load More",
+        "loading": "Loading..."
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Manage your account and application settings",
+      "announcement": {
+        "title": "Announcement Settings",
+        "languageSelector": "Select Language to Edit",
+        "languageSelectorHelp": "Choose the language version of the announcement to edit",
+        "titleLabel": "Announcement Title",
+        "titlePlaceholder": "Enter announcement title, leave empty to hide announcement",
+        "titleHelp": "Setting the title to empty will hide the announcement",
+        "contentLabel": "Announcement Content (Supports Markdown)",
+        "contentPlaceholder": "Enter announcement content, supports Markdown format",
+        "contentHelp": "Supports Markdown format, such as **bold**, *italic*, [link](URL), - list items, etc. Use \\n for line breaks. The announcement will appear as a popup in the top-right corner and disappear after 8 seconds.",
+        "typeLabel": "Announcement Type",
+        "types": {
+          "info": "Info (Blue)",
+          "warning": "Warning (Yellow)",
+          "success": "Success (Green)",
+          "error": "Error (Red)"
+        },
+        "updateButton": "Update Announcement",
+        "processingButton": "Updating...",
+        "previewButton": "Preview Current Announcement"
+      },
+      "password": {
+        "title": "Change Password",
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm New Password",
+        "updateButton": "Update Password",
+        "processingButton": "Updating...",
+        "allFieldsRequired": "Please fill in all password fields",
+        "passwordMismatch": "New password and confirmation do not match",
+        "passwordTooShort": "New password must be at least 8 characters long"
+      },
+      "account": {
+        "title": "Account Information",
+        "username": "Username",
+        "role": "Role",
+        "lastLogin": "Last Login"
+      },
+      "turnstile": {
+        "title": "Turnstile Human Verification",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "enabledDescription": "Users need to complete human verification to create short links",
+        "disabledDescription": "Users can create short links directly without human verification",
+        "enableButton": "Enable",
+        "disableButton": "Disable",
+        "updateError": "Failed to update Turnstile settings",
+        "statusMessage": "Turnstile human verification has been {status}"
+      },
+      "security": {
+        "title": "Security Tips",
+        "passwordTip": "Change your password regularly to maintain account security.",
+        "strongPasswordTip": "Use strong passwords that include letters, numbers, and special characters.",
+        "turnstileTip": "Enabling Turnstile human verification can prevent automated abuse."
+      },
+      "reservedSlugs": {
+        "title": "Reserved Short Links",
+        "newSlug": "New Reserved Short Link",
+        "newSlugPlaceholder": "Enter a short link to reserve",
+        "search": "Search Reserved Short Links",
+        "searchPlaceholder": "Search by name...",
+        "list": "Reserved Short Links",
+        "empty": "No reserved short links found",
+        "noResults": "No results match your search",
+        "addButton": "Add",
+        "removeButton": "Remove",
+        "description": "Reserved short links cannot be used by users to create custom short links. This helps prevent confusion and potential abuse.",
+        "errors": {
+          "emptySlug": "Please enter a short link to reserve",
+          "invalidFormat": "Short links can only contain letters, numbers, hyphens, and underscores, with a length between 3-20 characters",
+          "alreadyExists": "This short link is already reserved"
+        },
+        "success": {
+          "added": "Short link '{slug}' has been reserved",
+          "removed": "Short link '{slug}' has been removed from reserved list"
+        }
+      }
+    },
+    "common": {
+      "logout": "Logout",
+      "dashboard": "Dashboard",
+      "links": "Link Management",
+      "settings": "Settings",
+      "console": "Admin Console"
+    }
+  }
+}
