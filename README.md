@@ -53,6 +53,32 @@ kv_namespaces = [
 ]
 ```
 
+To get the KV ID and PREVIEW ID:
+
+**Using Cloudflare Dashboard:**
+
+- Go to Cloudflare Dashboard > Workers & Pages > KV
+- Create two namespaces: one for production (e.g., `LINKS_KV`) and one for preview (e.g., `LINKS_KV_PREVIEW`)
+- Copy the IDs of both namespaces
+
+**Using Wrangler CLI:**
+
+- Install Wrangler: `npm install -g wrangler`
+- Login: `wrangler login`
+- Create namespaces:
+
+```bash
+wrangler kv:namespace create "LINKS_KV"
+wrangler kv:namespace create "LINKS_KV_PREVIEW" --preview
+```
+
+- The command output will show the IDs you need
+
+Then set them as environment variables in your Cloudflare Pages project settings:
+
+- `KV_ID`: Your production KV namespace ID
+- `KV_PREVIEW_ID`: Your preview KV namespace ID (used for development and preview deployments)
+
 3. Create a site in [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) to get a Site Key and Secret Key.
 
 4. Set Turnstile keys as environment variables in your Cloudflare Pages project settings:
@@ -68,6 +94,7 @@ TURNSTILE_SECRET_KEY = "${TURNSTILE_SECRET_KEY}"
    - Connect your GitHub repository
    - Set the build command to `npm run build`
    - Set the output directory to `.next`
+   - For Framework preset, select **Next.js**
    - Add the environment variable `NODE_ENV=production`
 
 6. After deployment, your URL shortening service will be available at the domain provided by Cloudflare Pages.

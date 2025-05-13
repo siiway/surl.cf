@@ -51,6 +51,32 @@ kv_namespaces = [
 ]
 ```
 
+获取 KV ID 和 PREVIEW ID 的方法：
+
+**使用 Cloudflare 控制面板：**
+
+- 进入 Cloudflare 控制面板 > Workers & Pages > KV
+- 创建两个命名空间：一个用于生产环境（例如 `LINKS_KV`），一个用于预览环境（例如 `LINKS_KV_PREVIEW`）
+- 复制这两个命名空间的 ID
+
+**使用 Wrangler CLI：**
+
+- 安装 Wrangler：`npm install -g wrangler`
+- 登录：`wrangler login`
+- 创建命名空间：
+
+```bash
+wrangler kv:namespace create "LINKS_KV"
+wrangler kv:namespace create "LINKS_KV_PREVIEW" --preview
+```
+
+- 命令输出将显示您需要的 ID
+
+然后在 Cloudflare Pages 项目设置中将它们设置为环境变量：
+
+- `KV_ID`：您的生产环境 KV 命名空间 ID
+- `KV_PREVIEW_ID`：您的预览环境 KV 命名空间 ID（用于开发和预览部署）
+
 3. 在 [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) 创建一个站点，获取 Site Key 和 Secret Key。
 
 4. 在 Cloudflare Pages 项目设置中将 Turnstile 密钥设置为环境变量：
@@ -66,6 +92,7 @@ TURNSTILE_SECRET_KEY = "${TURNSTILE_SECRET_KEY}"
    - 连接你的 GitHub 仓库
    - 设置构建命令为 `npm run build`
    - 设置输出目录为 `.next`
+   - 对于 Framework preset（框架预设），选择 **Next.js**
    - 添加环境变量 `NODE_ENV=production`
 
 6. 部署完成后，你的链接缩短服务将在 Cloudflare Pages 提供的域名上可用。
