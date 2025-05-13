@@ -27,19 +27,27 @@ git clone https://github.com/siiway/surl.cf.git
 cd surl.cf
 ```
 
-2. Install dependencies:
+2. Make sure you have Node.js version 18.18.0 or higher installed. This project requires Node.js ^18.18.0 || ^19.8.0 || >= 20.0.0 for Next.js 15.3.2 to work properly.
+
+   The project includes `.node-version` and `.nvmrc` files that specify Node.js 20.11.1. If you use nvm, you can run:
+
+   ```bash
+   nvm use
+   ```
+
+3. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Run the development server:
+4. Run the development server:
 
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 ## Deployment to Cloudflare Pages
 
@@ -124,7 +132,7 @@ TURNSTILE_SECRET_KEY = "${TURNSTILE_SECRET_KEY}"
    - Set the build command to `npm run build`
    - Set the output directory to `.next`
    - For Framework preset, select **Next.js**
-   - Set Node.js version to **20** (required for Next.js 15+)
+   - Set Node.js version to **20.11.1** (required for Next.js 15+, matches the `.node-version` file)
    - Add the environment variable `NODE_ENV=production`
 
 6. After deployment, your URL shortening service will be available at the domain provided by Cloudflare Pages.

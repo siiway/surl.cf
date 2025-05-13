@@ -25,19 +25,27 @@ git clone https://github.com/siiway/surl.cf.git
 cd surl.cf
 ```
 
-2. 安装依赖：
+2. 确保您安装了 Node.js 18.18.0 或更高版本。本项目需要 Node.js ^18.18.0 || ^19.8.0 || >= 20.0.0 才能正常运行 Next.js 15.3.2。
+
+   项目包含 `.node-version` 和 `.nvmrc` 文件，指定了 Node.js 20.11.1。如果您使用 nvm，可以运行：
+
+   ```bash
+   nvm use
+   ```
+
+3. 安装依赖：
 
 ```bash
 npm install
 ```
 
-3. 运行开发服务器：
+4. 运行开发服务器：
 
 ```bash
 npm run dev
 ```
 
-4. 在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看结果。
+5. 在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看结果。
 
 ## 部署到 Cloudflare Pages
 
@@ -122,7 +130,7 @@ TURNSTILE_SECRET_KEY = "${TURNSTILE_SECRET_KEY}"
    - 设置构建命令为 `npm run build`
    - 设置输出目录为 `.next`
    - 对于 Framework preset（框架预设），选择 **Next.js**
-   - 设置 Node.js 版本为 **20**（Next.js 15+ 所需）
+   - 设置 Node.js 版本为 **20.11.1**（Next.js 15+ 所需，与 `.node-version` 文件匹配）
    - 添加环境变量 `NODE_ENV=production`
 
 6. 部署完成后，你的链接缩短服务将在 Cloudflare Pages 提供的域名上可用。
