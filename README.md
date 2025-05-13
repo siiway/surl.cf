@@ -48,6 +48,10 @@ npm run dev
 2. Set KV namespace IDs as environment variables in your Cloudflare Pages project settings:
 
 ```toml
+name = "your-project-name"
+compatibility_date = "2023-12-01"
+pages_build_output_dir = ".next"
+
 kv_namespaces = [
   { binding = "LINKS_KV", id = "${KV_ID}", preview_id = "${KV_PREVIEW_ID}" }
 ]
@@ -95,6 +99,7 @@ TURNSTILE_SECRET_KEY = "${TURNSTILE_SECRET_KEY}"
    - Set the build command to `npm run build`
    - Set the output directory to `.next`
    - For Framework preset, select **Next.js**
+   - Set Node.js version to **20** (required for Next.js 15+)
    - Add the environment variable `NODE_ENV=production`
 
 6. After deployment, your URL shortening service will be available at the domain provided by Cloudflare Pages.

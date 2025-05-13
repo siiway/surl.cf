@@ -1,6 +1,7 @@
 # Cloudflare Pages 配置
 name = "surl-cf"
 compatibility_date = "2023-12-01"
+pages_build_output_dir = ".next"
 
 # KV 命名空间配置
 kv_namespaces = [
@@ -10,7 +11,7 @@ kv_namespaces = [
 # 构建配置
 [build]
 command = "npm run build"
-output_directory = ".next"
+node_version = "20"
 
 # 环境变量
 [env.production]

@@ -46,6 +46,10 @@ npm run dev
 2. 在 Cloudflare Pages 项目设置中将 KV 命名空间 ID 设置为环境变量：
 
 ```toml
+name = "your-project-name"
+compatibility_date = "2023-12-01"
+pages_build_output_dir = ".next"
+
 kv_namespaces = [
   { binding = "LINKS_KV", id = "${KV_ID}", preview_id = "${KV_PREVIEW_ID}" }
 ]
@@ -93,6 +97,7 @@ TURNSTILE_SECRET_KEY = "${TURNSTILE_SECRET_KEY}"
    - 设置构建命令为 `npm run build`
    - 设置输出目录为 `.next`
    - 对于 Framework preset（框架预设），选择 **Next.js**
+   - 设置 Node.js 版本为 **20**（Next.js 15+ 所需）
    - 添加环境变量 `NODE_ENV=production`
 
 6. 部署完成后，你的链接缩短服务将在 Cloudflare Pages 提供的域名上可用。
