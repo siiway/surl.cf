@@ -45,23 +45,23 @@ npm run dev
 
 1. Create a KV namespace in your Cloudflare dashboard, named `LINKS_KV`.
 
-2. Update the KV namespace ID in the `wrangler.toml` file:
+2. Set KV namespace IDs as environment variables in your Cloudflare Pages project settings:
 
 ```toml
 kv_namespaces = [
-  { binding = "LINKS_KV", id = "YOUR_KV_ID_HERE", preview_id = "YOUR_PREVIEW_KV_ID_HERE" }
+  { binding = "LINKS_KV", id = "${KV_ID}", preview_id = "${KV_PREVIEW_ID}" }
 ]
 ```
 
 3. Create a site in [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) to get a Site Key and Secret Key.
 
-4. Update the Turnstile keys in the `wrangler.toml` file:
+4. Set Turnstile keys as environment variables in your Cloudflare Pages project settings:
 
 ```toml
 [env.production]
 NODE_ENV = "production"
-NEXT_PUBLIC_TURNSTILE_SITE_KEY = "YOUR_TURNSTILE_SITE_KEY"
-TURNSTILE_SECRET_KEY = "YOUR_TURNSTILE_SECRET_KEY"
+NEXT_PUBLIC_TURNSTILE_SITE_KEY = "${TURNSTILE_SITE_KEY}"
+TURNSTILE_SECRET_KEY = "${TURNSTILE_SECRET_KEY}"
 ```
 
 5. Deploy using Cloudflare Pages:
@@ -96,17 +96,30 @@ Admin console features:
 2. **Link Management** - View, search, and delete short links
 3. **Settings** - Manage account settings and system configuration, including enabling/disabling human verification
 
-To configure admin credentials, set the following environment variables in your `wrangler.toml` file:
+To configure admin credentials and other settings, set the following environment variables in your Cloudflare Pages project settings:
 
-```toml
-JWT_SECRET = "your-super-secret-jwt-key" # Key for JWT signing
-ADMIN_USERNAME = "your-username" # Admin username
-ADMIN_PASSWORD = "your-password" # Admin password
-NEXT_PUBLIC_ENABLE_TURNSTILE = "true" # Whether to enable Turnstile human verification (true/false)
-NEXT_PUBLIC_ANNOUNCEMENT_TITLE = "Welcome to SURL.CF" # Announcement title, set to empty string to hide
-NEXT_PUBLIC_ANNOUNCEMENT_CONTENT = "This is a **simple, fast** URL shortening service!\n\n- Supports custom short links\n- Supports copy to clipboard" # Announcement content, supports Markdown
-NEXT_PUBLIC_ANNOUNCEMENT_TYPE = "info" # Announcement type: info, warning, success, error
-NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf" # GitHub repository link
+```env
+JWT_SECRET                      # Key for JWT signing
+ADMIN_USERNAME                  # Admin username
+ADMIN_PASSWORD                  # Admin password
+NEXT_PUBLIC_ENABLE_TURNSTILE    # Whether to enable Turnstile (true/false)
+NEXT_PUBLIC_ANNOUNCEMENT_TITLE  # Announcement title
+NEXT_PUBLIC_ANNOUNCEMENT_CONTENT # Announcement content (supports Markdown)
+NEXT_PUBLIC_ANNOUNCEMENT_TYPE   # Announcement type (info/warning/success/error)
+NEXT_PUBLIC_GITHUB_URL          # GitHub repository link
+```
+
+Example values:
+
+```env
+JWT_SECRET = "your-super-secret-jwt-key"
+ADMIN_USERNAME = "your-username"
+ADMIN_PASSWORD = "your-password"
+NEXT_PUBLIC_ENABLE_TURNSTILE = "true"
+NEXT_PUBLIC_ANNOUNCEMENT_TITLE = "Welcome to SURL.CF"
+NEXT_PUBLIC_ANNOUNCEMENT_CONTENT = "This is a **simple, fast** URL shortening service!"
+NEXT_PUBLIC_ANNOUNCEMENT_TYPE = "info"
+NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf"
 ```
 
 ## Open Source License
