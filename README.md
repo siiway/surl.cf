@@ -51,10 +51,6 @@ npm run dev
 name = "your-project-name"
 compatibility_date = "2023-12-01"
 pages_build_output_dir = ".next"
-node_version = "20"
-
-[build]
-command = "npm run build"
 
 [env.production]
 # Your environment variables here...
@@ -72,6 +68,8 @@ kv_namespaces = [
   { binding = "LINKS_KV", id = "${KV_PREVIEW_ID}" }
 ]
 ```
+
+**Note:** Configure the Node.js version (20) in your Cloudflare Pages project settings, not in wrangler.toml.
 
 To get the KV ID and PREVIEW ID:
 

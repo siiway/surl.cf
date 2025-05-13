@@ -49,10 +49,6 @@ npm run dev
 name = "your-project-name"
 compatibility_date = "2023-12-01"
 pages_build_output_dir = ".next"
-node_version = "20"
-
-[build]
-command = "npm run build"
 
 [env.production]
 # 你的环境变量在这里...
@@ -70,6 +66,8 @@ kv_namespaces = [
   { binding = "LINKS_KV", id = "${KV_PREVIEW_ID}" }
 ]
 ```
+
+**注意：** 在 Cloudflare Pages 项目设置中配置 Node.js 版本（20），而不是在 wrangler.toml 中。
 
 获取 KV ID 和 PREVIEW ID 的方法：
 

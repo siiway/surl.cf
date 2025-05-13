@@ -1,16 +1,12 @@
 # Cloudflare Pages 配置
 name = "surl-cf"
-compatibility_date = "2023-12-01"
+compatibility_date = "2025-05-13"
 pages_build_output_dir = ".next"
-node_version = "20"
-
-# 构建配置
-[build]
-command = "npm run build"
 
 # 环境变量
 [env.production]
 NODE_ENV = "production"
+NODE_VERSION = "20"
 NEXT_PUBLIC_TURNSTILE_SITE_KEY = "1x00000000000000000000AA" # 替换为你的 Turnstile site key
 TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA" # 替换为你的 Turnstile secret key
 NEXT_PUBLIC_ENABLE_TURNSTILE = "true" # 是否启用 Turnstile 人机验证 (true/false)
@@ -31,6 +27,7 @@ kv_namespaces = [
 
 [env.preview]
 NODE_ENV = "production"
+NODE_VERSION = "20"
 NEXT_PUBLIC_TURNSTILE_SITE_KEY = "1x00000000000000000000AA" # 替换为你的 Turnstile site key
 TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA" # 替换为你的 Turnstile secret key
 NEXT_PUBLIC_ENABLE_TURNSTILE = "true" # 是否启用 Turnstile 人机验证 (true/false)
