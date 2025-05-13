@@ -49,24 +49,35 @@ npm run dev
 
 ```toml
 name = "your-project-name"
-compatibility_date = "2023-12-01"
+compatibility_date = "2025-05-13"
 pages_build_output_dir = ".next"
 
-[env.production]
-# Your environment variables here...
+# Global variables and bindings (for local development)
+[vars]
+API_KEY = "your-api-key"
 
-# KV namespace for production
-kv_namespaces = [
-  { binding = "LINKS_KV", id = "${KV_ID}" }
-]
+# Global KV namespace configuration
+[[kv_namespaces]]
+binding = "LINKS_KV"
+id = "${KV_ID}"
 
-[env.preview]
-# Your environment variables here...
+# Production environment configuration
+[env.production.vars]
+API_KEY = "your-production-api-key"
 
-# KV namespace for preview
-kv_namespaces = [
-  { binding = "LINKS_KV", id = "${KV_PREVIEW_ID}" }
-]
+# Production KV namespace configuration
+[[env.production.kv_namespaces]]
+binding = "LINKS_KV"
+id = "${KV_ID}"
+
+# Preview environment configuration
+[env.preview.vars]
+API_KEY = "your-preview-api-key"
+
+# Preview KV namespace configuration
+[[env.preview.kv_namespaces]]
+binding = "LINKS_KV"
+id = "${KV_PREVIEW_ID}"
 ```
 
 **Note:** Configure the Node.js version (20) in your Cloudflare Pages project settings, not in wrangler.toml.

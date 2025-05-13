@@ -47,24 +47,35 @@ npm run dev
 
 ```toml
 name = "your-project-name"
-compatibility_date = "2023-12-01"
+compatibility_date = "2025-05-13"
 pages_build_output_dir = ".next"
 
-[env.production]
-# 你的环境变量在这里...
+# 全局变量和绑定（用于本地开发）
+[vars]
+API_KEY = "your-api-key"
 
-# 生产环境的 KV 命名空间
-kv_namespaces = [
-  { binding = "LINKS_KV", id = "${KV_ID}" }
-]
+# 全局 KV 命名空间配置
+[[kv_namespaces]]
+binding = "LINKS_KV"
+id = "${KV_ID}"
 
-[env.preview]
-# 你的环境变量在这里...
+# 生产环境配置
+[env.production.vars]
+API_KEY = "your-production-api-key"
 
-# 预览环境的 KV 命名空间
-kv_namespaces = [
-  { binding = "LINKS_KV", id = "${KV_PREVIEW_ID}" }
-]
+# 生产环境 KV 命名空间配置
+[[env.production.kv_namespaces]]
+binding = "LINKS_KV"
+id = "${KV_ID}"
+
+# 预览环境配置
+[env.preview.vars]
+API_KEY = "your-preview-api-key"
+
+# 预览环境 KV 命名空间配置
+[[env.preview.kv_namespaces]]
+binding = "LINKS_KV"
+id = "${KV_PREVIEW_ID}"
 ```
 
 **注意：** 在 Cloudflare Pages 项目设置中配置 Node.js 版本（20），而不是在 wrangler.toml 中。

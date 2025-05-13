@@ -3,45 +3,65 @@ name = "surl-cf"
 compatibility_date = "2025-05-13"
 pages_build_output_dir = ".next"
 
-# 环境变量
-[env.production]
+# 全局变量和绑定（用于本地开发）
+[vars]
 NODE_ENV = "production"
-NODE_VERSION = "20"
-NEXT_PUBLIC_TURNSTILE_SITE_KEY = "1x00000000000000000000AA" # 替换为你的 Turnstile site key
-TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA" # 替换为你的 Turnstile secret key
-NEXT_PUBLIC_ENABLE_TURNSTILE = "true" # 是否启用 Turnstile 人机验证 (true/false)
-NEXT_PUBLIC_ANNOUNCEMENT_TITLE_ZH_CN = "欢迎使用 SURL.CF" # 中文公告标题，设置为空字符串则不显示
-NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_ZH_CN = "这是一个**简单、快速**的链接缩短服务！\n\n- 支持自定义短链接\n- 支持复制到剪贴板\n- 支持多语言" # 中文公告内容，支持 Markdown
-NEXT_PUBLIC_ANNOUNCEMENT_TITLE_EN_US = "Welcome to SURL.CF" # 英文公告标题，设置为空字符串则不显示
-NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_EN_US = "This is a **simple, fast** URL shortening service!\n\n- Custom short links supported\n- Copy to clipboard\n- Multilingual support" # 英文公告内容，支持 Markdown
-NEXT_PUBLIC_ANNOUNCEMENT_TYPE = "info" # 公告类型: info, warning, success, error
-NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf" # GitHub 仓库链接
-JWT_SECRET = "your-super-secret-jwt-key-change-this-in-production" # 替换为你的 JWT 密钥
-ADMIN_USERNAME = "admin" # 替换为你的管理员用户名
-ADMIN_PASSWORD = "admin123" # 替换为你的管理员密码
+NEXT_PUBLIC_TURNSTILE_SITE_KEY = "1x00000000000000000000AA"
+TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA"
+NEXT_PUBLIC_ENABLE_TURNSTILE = "true"
+NEXT_PUBLIC_ANNOUNCEMENT_TITLE_ZH_CN = "欢迎使用 SURL.CF"
+NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_ZH_CN = "这是一个**简单、快速**的链接缩短服务！\n\n- 支持自定义短链接\n- 支持复制到剪贴板\n- 支持多语言"
+NEXT_PUBLIC_ANNOUNCEMENT_TITLE_EN_US = "Welcome to SURL.CF"
+NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_EN_US = "This is a **simple, fast** URL shortening service!\n\n- Custom short links supported\n- Copy to clipboard\n- Multilingual support"
+NEXT_PUBLIC_ANNOUNCEMENT_TYPE = "info"
+NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf"
+JWT_SECRET = "your-super-secret-jwt-key-change-this-in-production"
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "admin123"
 
-# KV 命名空间配置 (生产环境)
-kv_namespaces = [
-  { binding = "LINKS_KV", id = "${KV_ID}" }
-]
+# 全局 KV 命名空间配置
+[[kv_namespaces]]
+binding = "LINKS_KV"
+id = "${KV_ID}"
 
-[env.preview]
+# 生产环境配置
+[env.production.vars]
 NODE_ENV = "production"
-NODE_VERSION = "20"
-NEXT_PUBLIC_TURNSTILE_SITE_KEY = "1x00000000000000000000AA" # 替换为你的 Turnstile site key
-TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA" # 替换为你的 Turnstile secret key
-NEXT_PUBLIC_ENABLE_TURNSTILE = "true" # 是否启用 Turnstile 人机验证 (true/false)
-NEXT_PUBLIC_ANNOUNCEMENT_TITLE_ZH_CN = "欢迎使用 SURL.CF" # 中文公告标题，设置为空字符串则不显示
-NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_ZH_CN = "这是一个**简单、快速**的链接缩短服务！\n\n- 支持自定义短链接\n- 支持复制到剪贴板\n- 支持多语言" # 中文公告内容，支持 Markdown
-NEXT_PUBLIC_ANNOUNCEMENT_TITLE_EN_US = "Welcome to SURL.CF" # 英文公告标题，设置为空字符串则不显示
-NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_EN_US = "This is a **simple, fast** URL shortening service!\n\n- Custom short links supported\n- Copy to clipboard\n- Multilingual support" # 英文公告内容，支持 Markdown
-NEXT_PUBLIC_ANNOUNCEMENT_TYPE = "info" # 公告类型: info, warning, success, error
-NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf" # GitHub 仓库链接
-JWT_SECRET = "your-super-secret-jwt-key-change-this-in-production" # 替换为你的 JWT 密钥
-ADMIN_USERNAME = "admin" # 替换为你的管理员用户名
-ADMIN_PASSWORD = "admin123" # 替换为你的管理员密码
+NEXT_PUBLIC_TURNSTILE_SITE_KEY = "1x00000000000000000000AA"
+TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA"
+NEXT_PUBLIC_ENABLE_TURNSTILE = "true"
+NEXT_PUBLIC_ANNOUNCEMENT_TITLE_ZH_CN = "欢迎使用 SURL.CF"
+NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_ZH_CN = "这是一个**简单、快速**的链接缩短服务！\n\n- 支持自定义短链接\n- 支持复制到剪贴板\n- 支持多语言"
+NEXT_PUBLIC_ANNOUNCEMENT_TITLE_EN_US = "Welcome to SURL.CF"
+NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_EN_US = "This is a **simple, fast** URL shortening service!\n\n- Custom short links supported\n- Copy to clipboard\n- Multilingual support"
+NEXT_PUBLIC_ANNOUNCEMENT_TYPE = "info"
+NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf"
+JWT_SECRET = "your-super-secret-jwt-key-change-this-in-production"
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "admin123"
 
-# KV 命名空间配置 (预览环境)
-kv_namespaces = [
-  { binding = "LINKS_KV", id = "${KV_PREVIEW_ID}" }
-]
+# 生产环境 KV 命名空间配置
+[[env.production.kv_namespaces]]
+binding = "LINKS_KV"
+id = "${KV_ID}"
+
+# 预览环境配置
+[env.preview.vars]
+NODE_ENV = "production"
+NEXT_PUBLIC_TURNSTILE_SITE_KEY = "1x00000000000000000000AA"
+TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA"
+NEXT_PUBLIC_ENABLE_TURNSTILE = "true"
+NEXT_PUBLIC_ANNOUNCEMENT_TITLE_ZH_CN = "欢迎使用 SURL.CF"
+NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_ZH_CN = "这是一个**简单、快速**的链接缩短服务！\n\n- 支持自定义短链接\n- 支持复制到剪贴板\n- 支持多语言"
+NEXT_PUBLIC_ANNOUNCEMENT_TITLE_EN_US = "Welcome to SURL.CF"
+NEXT_PUBLIC_ANNOUNCEMENT_CONTENT_EN_US = "This is a **simple, fast** URL shortening service!\n\n- Custom short links supported\n- Copy to clipboard\n- Multilingual support"
+NEXT_PUBLIC_ANNOUNCEMENT_TYPE = "info"
+NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf"
+JWT_SECRET = "your-super-secret-jwt-key-change-this-in-production"
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "admin123"
+
+# 预览环境 KV 命名空间配置
+[[env.preview.kv_namespaces]]
+binding = "LINKS_KV"
+id = "${KV_PREVIEW_ID}"
