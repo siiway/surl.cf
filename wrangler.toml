@@ -2,16 +2,11 @@
 name = "surl-cf"
 compatibility_date = "2023-12-01"
 pages_build_output_dir = ".next"
-
-# KV 命名空间配置
-kv_namespaces = [
-  { binding = "LINKS_KV", id = "YOUR_KV_ID_HERE", preview_id = "YOUR_PREVIEW_KV_ID_HERE" }
-]
+node_version = "20"
 
 # 构建配置
 [build]
 command = "npm run build"
-node_version = "20"
 
 # 环境变量
 [env.production]
@@ -29,6 +24,11 @@ JWT_SECRET = "your-super-secret-jwt-key-change-this-in-production" # 替换为�
 ADMIN_USERNAME = "admin" # 替换为你的管理员用户名
 ADMIN_PASSWORD = "admin123" # 替换为你的管理员密码
 
+# KV 命名空间配置 (生产环境)
+kv_namespaces = [
+  { binding = "LINKS_KV", id = "${KV_ID}" }
+]
+
 [env.preview]
 NODE_ENV = "production"
 NEXT_PUBLIC_TURNSTILE_SITE_KEY = "1x00000000000000000000AA" # 替换为你的 Turnstile site key
@@ -43,3 +43,8 @@ NEXT_PUBLIC_GITHUB_URL = "https://github.com/siiway/surl.cf" # GitHub 仓库链�
 JWT_SECRET = "your-super-secret-jwt-key-change-this-in-production" # 替换为你的 JWT 密钥
 ADMIN_USERNAME = "admin" # 替换为你的管理员用户名
 ADMIN_PASSWORD = "admin123" # 替换为你的管理员密码
+
+# KV 命名空间配置 (预览环境)
+kv_namespaces = [
+  { binding = "LINKS_KV", id = "${KV_PREVIEW_ID}" }
+]

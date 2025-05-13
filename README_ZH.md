@@ -49,9 +49,25 @@ npm run dev
 name = "your-project-name"
 compatibility_date = "2023-12-01"
 pages_build_output_dir = ".next"
+node_version = "20"
 
+[build]
+command = "npm run build"
+
+[env.production]
+# 你的环境变量在这里...
+
+# 生产环境的 KV 命名空间
 kv_namespaces = [
-  { binding = "LINKS_KV", id = "${KV_ID}", preview_id = "${KV_PREVIEW_ID}" }
+  { binding = "LINKS_KV", id = "${KV_ID}" }
+]
+
+[env.preview]
+# 你的环境变量在这里...
+
+# 预览环境的 KV 命名空间
+kv_namespaces = [
+  { binding = "LINKS_KV", id = "${KV_PREVIEW_ID}" }
 ]
 ```
 

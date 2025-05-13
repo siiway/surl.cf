@@ -51,9 +51,25 @@ npm run dev
 name = "your-project-name"
 compatibility_date = "2023-12-01"
 pages_build_output_dir = ".next"
+node_version = "20"
 
+[build]
+command = "npm run build"
+
+[env.production]
+# Your environment variables here...
+
+# KV namespace for production
 kv_namespaces = [
-  { binding = "LINKS_KV", id = "${KV_ID}", preview_id = "${KV_PREVIEW_ID}" }
+  { binding = "LINKS_KV", id = "${KV_ID}" }
+]
+
+[env.preview]
+# Your environment variables here...
+
+# KV namespace for preview
+kv_namespaces = [
+  { binding = "LINKS_KV", id = "${KV_PREVIEW_ID}" }
 ]
 ```
 
